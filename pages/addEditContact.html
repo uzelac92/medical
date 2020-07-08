@@ -1,0 +1,113 @@
+<section ng-controller="contCtrl">
+    <div class="modal-body pd-20 pd-sm-30">
+        <button type="button" class="close pos-absolute t-15 r-20" ng-click="cancel()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    
+        <h5 class="tx-18 tx-sm-20 mg-b-20">{{modalType}} Contact</h5>
+        <p class="tx-13 tx-color-03 mg-b-30">You can add more information than what you see here, such as address and birthday by clicking <span class="tx-color-02">Add More Fields</span> button below to bring up more options.</p>
+    
+        <div class="d-sm-flex">
+            <div class="mg-sm-r-30">
+                <div class="pos-relative d-inline-block mg-b-20">
+                <div class="avatar avatar-xxl"><span class="avatar-initial rounded-circle bg-gray-700 tx-normal"><i class="icon ion-md-person"></i></span></div>
+                <a href="" class="contact-edit-photo"><i data-feather="edit-2"></i></a>
+                </div>
+            </div><!-- col -->
+            <div class="flex-fill">
+                <div class="form-group">
+                    <label>Salutation</label>
+                    <div class="switch-field">
+                        <input type="radio" id="radio-one" name="switch-two" ng-checked="true" value="Mx" ng-model="manual.salute"/>
+                        <label for="radio-one">Mx</label>
+                        <input type="radio" id="radio-two" name="switch-two" value="Ms" ng-model="manual.salute"/>
+                        <label for="radio-two">Ms</label>
+                        <input type="radio" id="radio-three" name="switch-two" value="Mr" ng-model="manual.salute"/>
+                        <label for="radio-three">Mr</label>
+                        <input type="radio" id="radio-four" name="switch-two" value="Dr" ng-model="manual.salute"/>
+                        <label for="radio-four">Dr</label>
+                        <input type="radio" id="radio-five" name="switch-two" value="Mrs" ng-model="manual.salute"/>
+                        <label for="radio-five">Mrs</label>
+                    </div>
+                </div>
+                <h6 class="mg-b-10">Personal Information</h6>
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Firstname" ng-model="manual.fname">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Lastname" ng-model="manual.lname">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10" ng-show="showDob">
+                <input type="text" class="form-control" id="datepicker" ng-model="manual.dob" cleave="cleaveDate.date" placeholder="Enter date: DD.MM.YYYY">
+                </div><!-- form-group -->
+    
+                <h6 class="mg-t-20 mg-b-10">Contact Information</h6>
+                <div class="form-group mg-b-10" ng-show="showPhone">
+                <input type="text" class="form-control" placeholder="Phone number" ng-model="manual.phone">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Email address" ng-model="manual.mail">
+                </div><!-- form-group -->
+
+                <h6 class="mg-t-20 mg-b-10" ng-if="showAddress || showZip || showCity || showInsurance">Other</h6>
+                <div class="form-group mg-b-10" ng-show="showAddress">
+                <input type="text" class="form-control" placeholder="Address" ng-model="manual.address">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10" ng-show="showZip">
+                <input type="text" class="form-control" placeholder="ZIP" ng-model="manual.zip">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10" ng-show="showCity">
+                <input type="text" class="form-control" placeholder="City" ng-model="manual.city">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10" ng-show="showInsurance">
+                <input type="text" class="form-control" placeholder="Insurance" ng-model="manual.insurance">
+                </div><!-- form-group -->
+    
+                <h6 class="mg-t-20 mg-b-10" ng-show="showCustom">Notes</h6>
+                <textarea class="form-control" rows="2" placeholder="Add notes" ng-show="showCustom" ng-model="manual.notes"></textarea>
+            </div><!-- col -->
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="wd-100p d-flex flex-column flex-sm-row justify-content-end">
+            <div class="dropup mg-b-15 mg-sm-b-0 mg-sm-r-auto">
+                <button type="button" class="btn btn-block bd bd-gray-300" data-toggle="dropdown">Add More Fields <i class="icon ion-ios-arrow-up mg-l-5"></i></button>
+                <div class="dropdown-menu tx-13">
+                    <a class="dropdown-item" ng-hide="showDob" ng-click="showDob=true">Date of Birth</a>
+                    <a class="dropdown-item" ng-hide="showPhone" ng-click="showPhone=true">Phone</a>
+                    <a class="dropdown-item" ng-hide="showAddress" ng-click="showAddress=true">Address</a>
+                    <a class="dropdown-item" ng-hide="showZip" ng-click="showZip=true">ZIP</a>
+                    <a class="dropdown-item" ng-hide="showCity" ng-click="showCity=true">City</a>
+                    <a class="dropdown-item" ng-hide="showInsurance" ng-click="showInsurance=true">Insurance</a>
+                    <a class="dropdown-item" ng-hide="showCustom" ng-click="showCustom=true">Notes</a>
+                    <a class="dropdown-item text-danger" ng-show="showDob" ng-click="showDob=false">Date of Birth</a>
+                    <a class="dropdown-item text-danger" ng-show="showPhone" ng-click="showPhone=false">Phone</a>
+                    <a class="dropdown-item text-danger" ng-show="showAddress" ng-click="showAddress=false">Address</a>
+                    <a class="dropdown-item text-danger" ng-show="showZip" ng-click="showZip=false">ZIP</a>
+                    <a class="dropdown-item text-danger" ng-show="showCity" ng-click="showCity=false">City</a>
+                    <a class="dropdown-item text-danger" ng-show="showInsurance" ng-click="showInsurance=false">Insurance</a>
+                    <a class="dropdown-item text-danger" ng-show="showCustom" ng-click="showCustom=false">Notes</a>
+                </div><!-- dropdown-menu -->
+            </div>
+            <button type="button" class="btn btn-primary mg-b-5 mg-sm-b-0" ng-click="manualRegister(manual);cancel()" ng-if="modalType=='Create New'">Save Contact</button>
+            <button type="button" class="btn btn-primary mg-b-5 mg-sm-b-0" ng-click="manualUpdate(manual);cancel()" ng-if="modalType=='Edit' && UIDtype == 1">Update Contact</button>
+            <button type="button" class="btn btn-primary mg-b-5 mg-sm-b-0" ng-click="userUpdate(manual);cancel()" ng-if="modalType=='Edit' && UIDtype == 2">Update Contact</button>
+            <button type="button" class="btn btn-secondary mg-sm-l-5" ng-click="cancel()">Discard</button>
+        </div>
+    </div>
+</section>
+<script>
+    feather.replace();
+    $('#datepicker').datepicker({
+        yearRange: "-100:+0", 
+        showOtherMonths: true,
+        selectOtherMonths: true,
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'dd.mm.yy'
+    });
+    var cleaveC = new Cleave('#datepicker', {
+        date: true,
+        datePattern: ['d','m', 'Y']
+    });
+</script>

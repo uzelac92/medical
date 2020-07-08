@@ -1,0 +1,140 @@
+<div class="contact-wrapper" ng-controller="contCtrl" ng-init="listusers()">
+    <div class="contact-navleft">
+      <nav class="nav flex-column">
+        <a href="#tabContact" class="nav-link active" data-toggle="tab">
+          <span data-toggle="tooltip" title="All Contacts" data-placement="right"><i data-feather="users"></i></span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="contact-sidebar">
+      <div class="contact-sidebar-header">
+        <i data-feather="search"></i>
+        <div class="search-form">
+          <input type="search" class="form-control" placeholder="Search contacts" ng-model="searchInput.LNAME">
+        </div>
+        <a ng-click="templateModal('Create New')" class="btn btn-xs btn-icon btn-primary text-white">
+          <span data-toggle="tooltip" title="Add New Contact"><i data-feather="user-plus"></i></span>
+        </a>
+      </div>
+      <div class="contact-sidebar-body">
+        <div class="tab-content">
+          <div id="tabContact" class="tab-pane fade active show">
+            <div class="pd-y-20 pd-x-10 contact-list">
+              <div ng-repeat="(key, value) in contacts track by $index" ng-init="color = $index">
+                <label id="contactA" class="contact-list-divider">{{key}}</label>
+                <div class="media" ng-repeat="con in value | filter:searchInput" ng-click="displayIt(con)">
+                  <div class="avatar avatar-sm avatar-online"><span class="avatar-initial rounded-circle" 
+                    ng-class="(color % 2 == 0) ? 'bg-gray-700':(color % 3 == 0 ? 'bg-primary':(color % 5 == 0 ? 'bg-info':'bg-warning'))">{{key}}</span></div>
+                  <div class="media-body mg-l-10">
+                    <h6 class="tx-13 mg-b-3">{{con.LNAME}} {{con.FNAME}}</h6>
+                    <span class="tx-12">{{con.PHONE}}</span>
+                  </div>
+                  <nav>
+                    <a ng-click="templateModal('Edit',con)"><i data-feather="edit-2"></i></a>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-content">
+      <div class="contact-content-header">
+        <nav class="nav" ng-init="tabItem = false">
+          <a ng-click="tabItem = false" class="nav-link" ng-class="tabItem ? 'pointer':'active cur-default'" >Contact Info<span>rmation</span></a>
+          <a ng-click="tabItem = true" class="nav-link" ng-class="tabItem ? 'active cur-default':'pointer'" >Consultations</a>
+        </nav>
+        <a href="" id="contactOptions" class="text-secondary mg-l-auto d-xl-none"><i data-feather="more-horizontal"></i></a>
+      </div>
+
+      <div class="contact-content-body">
+        <div class="tab-content">
+
+          <div ng-class="tabItem ? '':'active'" class="tab-pane show active pd-20 pd-xl-25">
+            <div class="d-flex align-items-center justify-content-between mg-b-25">
+              <h6 class="mg-b-0">Personal Details</h6>
+              <div class="d-flex">
+                <a ng-if="selected != undefined" ng-click="templateModal('Edit',selected)" data-toggle="modal" class="btn btn-sm btn-white d-flex align-items-center mg-r-5"><i data-feather="edit-2"></i><span class="d-none d-sm-inline mg-l-5"> Edit</span></a>
+                <a ng-if="selected != undefined" ng-click="deleteContact(selected.ID)" data-toggle="modal" class="btn btn-sm btn-white d-flex align-items-center"><i data-feather="trash"></i><span class="d-none d-sm-inline mg-l-5"> Delete</span></a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 col-sm">
+                <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Salutation</label>
+                <p class="mg-b-0">{{selected.SALUTE}}</p>
+              </div><!-- col -->
+              <div class="col-6 col-sm">
+                <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Firstname</label>
+                <p class="mg-b-0">{{selected.FNAME}}</p>
+              </div><!-- col -->
+              <div class="col-sm mg-t-20 mg-sm-t-0">
+                <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Lastname</label>
+                <p class="mg-b-0">{{selected.LNAME}}</p>
+              </div><!-- col -->
+            </div><!-- row -->
+
+            <h6 class="mg-t-40 mg-b-20">Contact Details</h6>
+
+            <div class="row row-sm">
+              <div class="col-6 col-sm-4">
+                <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Date of birth</label>
+                <p class="tx-primary tx-rubik mg-b-0">{{selected.DOB}}</p>
+              </div>
+              <div class="col-6 col-sm-4">
+                <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Phone</label>
+                <p class="tx-primary tx-rubik mg-b-0">{{selected.PHONE}}</p>
+              </div>
+              <div class="col-6 col-sm-4 mg-t-20 mg-sm-t-0">
+                <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Email Address</label>
+                <p class="tx-primary mg-b-0">{{selected.USEMAIL}}</p>
+              </div>
+              <div class="col-sm-6 mg-t-20 mg-sm-t-30">
+                <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Address</label>
+                <p class="mg-b-0">{{selected.ADDRESS}}, <span>{{selected.ZIP}}</span> <span>{{selected.CITY}}</span> </p>
+              </div>
+              <div class="col-sm-6 mg-t-20 mg-sm-t-30">
+              </div>
+              <div class="col-sm mg-t-20 mg-sm-t-30">
+                <label class="tx-10 tx-medium tx-spacing-1 tx-color-03 tx-uppercase tx-sans mg-b-10">Notes</label>
+                <p class="tx-13 mg-b-0">{{selected.NOTES}}</p>
+              </div>
+            </div><!-- row -->
+          </div>
+          <div ng-class="tabItem ? 'active':''" class="tab-pane pd-20 pd-xl-25">
+            <div class="d-flex align-items-center justify-content-between mg-b-30">
+              <h6 class="tx-15 mg-b-0">Consultations</h6>
+              <a href="#" class="btn btn-sm btn-white d-flex align-items-center"><i class="icon ion-md-time mg-r-5 tx-16 lh--9"></i> Clear History</a>
+            </div>
+          </div><!-- tab-pane -->
+        </div><!-- tab-content -->
+      </div><!-- contact-content-body -->
+
+      <h class="contact-content-sidebar">
+        <div class="clearfix mg-b-25">
+          <div id="contactAvatar" class="pos-relative float-left">
+            <div class="avatar avatar-xl"><span class="avatar-initial rounded-circle bg-primary tx-normal"><i class="fas fa-hashtag"></i></span></div>
+            <a class="contact-edit-photo" data-toggle="tooltip" title="Upload Photo"><i data-feather="edit-2"></i></a>
+          </div>
+        </div>
+        <h5 id="contactName" class="tx-18 tx-xl-20 mg-b-5">{{selected.FNAME}} {{selected.LNAME}}</h5>
+        <hr class="mg-y-20">            
+        <div class="col-12 m-0 p-0">
+            <div class="row">
+                <p class="col-6 tx-color-03 d-inline mr-1 pb-0 px-0 my-2 ">REGISTRATION:</h6>
+                <h6 class="col-5 tx-color-03 d-inline mr-1 pb-0 text-dark my-2 px-0">{{selected.REG}}</h6>
+                <p class="col-6 tx-color-03 d-inline mr-1 pb-0 px-0 my-2 ">VERIFICATION:</h6>
+                <h6 class="col-5 tx-color-03 d-inline mr-1 pb-0 text-dark my-2 px-0">{{selected.VER}}</h6>
+                <p class="col-6 tx-color-03 d-inline mr-1 pb-0 px-0 my-2 ">TERMS ACCEPTED:</h6>
+                <h6 class="col-5 tx-color-03 d-inline mr-1 pb-0 text-dark my-2 px-0">{{selected.TER}}</h6>
+            </div>
+      </div>
+    </div>
+
+</div>
+<script>
+    feather.replace()
+</script>

@@ -1,0 +1,15 @@
+<section ng-controller="contCtrl">
+    <div class="modal-header">
+        <h6 class="modal-title">Delete Contact</h6>
+        <button type="button" class="close" aria-label="Close" ng-click="cancel()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+        <div class="modal-body">
+        <p class="mg-b-0">Do you really want to delete this contact?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" ng-click="cancel()">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="manualDelete();cancel()">Continue Delete</button>
+    </div>
+</section>

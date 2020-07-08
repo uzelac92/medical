@@ -1,0 +1,265 @@
+<section class="app-mail" ng-controller="consultCtrl">
+    <div class="mail-wrapper">
+        <div class="mail-sidebar">
+          <div class="mail-sidebar-body">
+            <div class="pd-20">
+              <button id="mailComposeBtn" class="btn btn-primary btn-block tx-uppercase tx-10 tx-medium tx-sans tx-spacing-4">Consultation</button>
+            </div>
+            <div class="pd-b-10 pd-x-10">
+              <nav class="nav nav-sidebar tx-13">
+                <a href="" class="nav-link active"><i data-feather="inbox"></i> <span>Open</span> <span class="badge">20</span></a>
+                <a href="" class="nav-link"><i data-feather="monitor"></i> <span>Done</span> <span class="badge">3</span></a>
+              </nav>
+            </div>
+          </div><!-- mail-sidebar-body -->
+        </div><!-- mail-sidebar -->
+  
+        <div class="mail-group">
+          <div class="mail-group-header">
+            <i data-feather="search"></i>
+            <div class="search-form">
+              <input type="search" class="form-control" placeholder="Search mail">
+            </div><!-- search-form -->
+          </div><!-- mail-group-header -->
+          <div class="mail-group-body">
+            <div class="pd-y-15 pd-x-20 d-flex justify-content-between align-items-center">
+              <h6 class="tx-uppercase tx-semibold mg-b-0">Inbox</h6>
+              <div class="dropdown tx-13">
+                <span class="tx-color-03">Sort:</span> <a href="" class="dropdown-link link-02">Date</a>
+              </div><!-- dropdown -->
+            </div>
+            <label class="mail-group-label">Today</label>
+            <ul class="list-unstyled media-list mg-b-0">
+              <li class="media unread">   
+                <div class="avatar"><span class="avatar-initial rounded-circle bg-indigo">d</span></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Dyanne Aceron</span>
+                    <span class="tx-11">1:20pm</span>
+                  </div>
+                  <h6 class="tx-13">Just asking questions</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Aenean commodo ligula eget dolor. Ae nean massa. Cum sociis natoque </p>
+                </div><!-- media-body -->
+              </li>
+              <li class="media">
+                <div class="avatar"><img src="https://via.placeholder.com/350" class="rounded-circle" alt=""></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Reynante Labares</span>
+                    <span class="tx-11">11:40am</span>
+                  </div>
+                  <h6 class="tx-13">30 Seconds Survey to Your Next Job</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Aenean commodo ligula eget dolor. Ae nean massa. Cum sociis natoque </p>
+                </div><!-- media-body -->
+              </li>
+              <li class="media">
+                <div class="avatar"><span class="avatar-initial rounded-circle bg-gray-800">r</span></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Rolando Paloso</span>
+                    <span class="tx-11">10:54am</span>
+                  </div>
+                  <h6 class="tx-13">Watch, Listen and Play Longer</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Aenean commodo ligula eget dolor. Ae nean massa. Cum sociis natoque </p>
+                </div><!-- media-body -->
+              </li>
+              <li class="media">
+                <div class="avatar"><span class="avatar-initial rounded-circle bg-pink">s</span></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Socrates Itumay</span>
+                    <span class="tx-11">09:50am</span>
+                  </div>
+                  <h6 class="tx-13">Pre-Order Sale: Mastering CSS</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Aenean commodo ligula eget dolor. Ae nean massa. Cum sociis natoque </p>
+                </div><!-- media-body -->
+              </li>
+            </ul>
+            <label class="mail-group-label">Yesterday</label>
+            <ul class="list-unstyled media-list mg-b-0">
+              <li class="media">
+                <div class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Yassi Pressman</span>
+                    <span class="tx-11">8:20pm</span>
+                  </div>
+                  <h6 class="tx-13">Envato Contributor Payment</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Commodo ligula eget dolor. Aenean massa cum sociis natoqu</p>
+                </div><!-- media-body -->
+              </li>
+              <li class="media unread">
+                <div class="avatar"><span class="avatar-initial rounded-circle bg-teal">i</span></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Isidore Dilao</span>
+                    <span class="tx-11">06:42pm</span>
+                  </div>
+                  <h6 class="tx-13">America's Best Dance Cruise</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Aenean commodo ligula eget dolor. Ae nean massa. Cum sociis natoque </p>
+                </div><!-- media-body -->
+              </li>
+            </ul>
+            <label class="mail-group-label">January 20</label>
+            <ul class="list-unstyled media-list mg-b-0">
+              <li class="media">
+                <div class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Dexter Dela Cruz</span>
+                    <span class="tx-11">4:18pm</span>
+                  </div>
+                  <h6 class="tx-13">A Flaming Pile of Garbage</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Commodo ligula eget dolor. Aenean massa cum sociis natoqu</p>
+                </div><!-- media-body -->
+              </li>
+              <li class="media">
+                <div class="avatar"><span class="avatar-initial rounded-circle bg-primary">a</span></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Adrian Monino</span>
+                    <span class="tx-11">06:42pm</span>
+                  </div>
+                  <h6 class="tx-13">America's Best Dance Cruise</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Aenean commodo ligula eget dolor. Ae nean massa. Cum sociis natoque </p>
+                </div><!-- media-body -->
+              </li>
+            </ul>
+            <label class="mail-group-label">January 18</label>
+            <ul class="list-unstyled media-list mg-b-0">
+              <li class="media">
+                <div class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Annie Christensen</span>
+                    <span class="tx-11">7:26pm</span>
+                  </div>
+                  <h6 class="tx-13">Just asking questions</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Commodo ligula eget dolor. Aenean massa cum sociis natoqu</p>
+                </div><!-- media-body -->
+              </li>
+              <li class="media">
+                <div class="avatar"><span class="avatar-initial rounded-circle bg-primary">a</span></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Adrian Monino</span>
+                    <span class="tx-11">06:42pm</span>
+                  </div>
+                  <h6 class="tx-13">Watch, Listen and Play Longer</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Aenean commodo ligula eget dolor. Ae nean massa. Cum sociis natoque </p>
+                </div><!-- media-body -->
+              </li>
+              <li class="media">
+                <div class="avatar"><img src="https://via.placeholder.com/600" class="rounded-circle" alt=""></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Robert Restificar</span>
+                    <span class="tx-11">12:01pm</span>
+                  </div>
+                  <h6 class="tx-13">Envato Contributor Payment</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Commodo ligula eget dolor. Aenean massa cum sociis natoqu</p>
+                </div><!-- media-body -->
+              </li>
+              <li class="media">
+                <div class="avatar"><span class="avatar-initial rounded-circle bg-purple">r</span></div>
+                <div class="media-body mg-l-15">
+                  <div class="tx-color-03 d-flex align-items-center justify-content-between mg-b-2">
+                    <span class="tx-12">Raymart Serencio</span>
+                    <span class="tx-11">10:13am</span>
+                  </div>
+                  <h6 class="tx-13">Sale: Javascript Beginners</h6>
+                  <p class="tx-12 tx-color-03 mg-b-0">Aenean commodo ligula eget dolor. Ae nean massa. Cum sociis natoque </p>
+                </div><!-- media-body -->
+              </li>
+            </ul>
+            <div class="pd-t-1 pd-b-5 pd-x-5">
+              <a href="" class="btn btn-xs btn-block btn-light bd-0 tx-uppercase tx-10 tx-spacing-1 tx-medium mn-ht-0">Load more</a>
+            </div>
+          </div><!-- mail-group-body -->
+        </div><!-- mail-group -->
+  
+        <div class="mail-content">
+          <div class="mail-content-header">
+            <a href="" id="mailContentClose" class="link-02 d-none d-lg-block d-xl-none mg-r-20"><i data-feather="arrow-left"></i></a>
+            <div class="media">
+              <div class="avatar avatar-sm"><img src="https://via.placeholder.com/600" class="rounded-circle" alt=""></div>
+              <div class="media-body mg-l-10">
+                <h6 class="mg-b-2 tx-13">Reynante Labares</h6>
+                <span class="d-block tx-11 tx-color-03">Today, 11:40am</span>
+              </div><!-- media-body -->
+            </div><!-- media -->
+            <nav class="nav nav-icon-only mg-l-auto">
+              <a href="" data-toggle="tooltip" title="Archive" class="nav-link d-none d-sm-block"><i data-feather="archive"></i></a>
+              <a href="" data-toggle="tooltip" title="Report Spam" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
+              <a href="" data-toggle="tooltip" title="Mark Unread" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
+              <a href="" data-toggle="tooltip" title="Add Label" class="nav-link d-none d-sm-block"><i data-feather="folder"></i></a>
+              <a href="" data-toggle="tooltip" title="Add Tag" class="nav-link d-none d-sm-block"><i data-feather="tag"></i></a>
+              <span class="nav-divider d-none d-sm-block"></span>
+              <a href="" data-toggle="tooltip" title="Mark Important" class="nav-link d-none d-sm-block"><i data-feather="star"></i></a>
+              <a href="" data-toggle="tooltip" title="Trash" class="nav-link d-none d-sm-block"><i data-feather="trash"></i></a>
+              <a href="" data-toggle="tooltip" title="Print" class="nav-link d-none d-sm-block"><i data-feather="printer"></i></a>
+              <a href="" data-toggle="tooltip" title="Options" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
+            </nav>
+          </div><!-- mail-content-header -->
+          <div class="mail-content-body">
+            <div class="pd-20 pd-lg-25 pd-xl-30">
+              <div class="container">
+                <div class="row">
+                    <div class="row m-b-1 col-12">
+                      <div class="col-sm-7 offset-sm-3" ng-hide="uploader.queue.length > 0">
+                        <button type="button" class="btn btn-primary btn-block" onclick="document.getElementById('inputFile').click()">Add PDF</button>
+                        <div class="form-group inputDnD" nv-file-over="" uploader="uploader" ng-show="uploader.isHTML5">
+                          <label class="sr-only" for="inputFile">File Upload</label>
+                          <input type="file" class="form-control-file text-primary font-weight-bold mt-2" id="inputFile" nv-file-select="" uploader="uploader"  data-title="Drag and drop a file">
+                        </div>
+                      </div>
+                    </div>
+    
+                    <div class="col-md-12" style="margin-bottom: 40px">
+                        <h3>Upload queue</h3>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th width="50%">Name</th>
+                                    <th ng-show="uploader.isHTML5">Size</th>
+                                    <th ng-show="uploader.isHTML5">Progress</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in uploader.queue">
+                                    <td><strong>{{ item.file.name }}</strong></td>
+                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                    <td ng-show="uploader.isHTML5">
+                                        <div class="progress" style="margin-bottom: 0;">
+                                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                        <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                        <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                    </td>
+                                    <td nowrap>
+                                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                            <span class="glyphicon glyphicon-upload"></span> Upload
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- mail-content-body -->
+        </div><!-- mail-content -->
+    </div><!-- mail-wrapper -->
+</section>

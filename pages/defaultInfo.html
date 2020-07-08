@@ -1,0 +1,90 @@
+<section>
+    <div class="modal-body pd-20 pd-sm-30">
+        <button type="button" class="close pos-absolute t-15 r-20" ng-click="cancel()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    
+        <h5 class="tx-18 tx-sm-20 mg-b-20">Consultation record</h5>
+        <p class="tx-13 tx-color-03 mg-b-30">You can either use your default information presented in your profile or insert new information.</p>
+    
+        <div class="d-sm-flex">
+            <div class="flex-fill" ng-init="initRecords()">
+
+                <h6 class="mg-b-10">Period</h6>
+                <div class="form-group d-flex mg-b-10">
+                    <div class="custom-control custom-radio mg-r-10">
+                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked ng-model="manual.period" value="3">
+                        <label class="custom-control-label" for="customRadio1">3 months</label>
+                    </div>
+                    <div class="custom-control custom-radio mg-r-10">
+                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input"ng-model="manual.period" value="6">
+                        <label class="custom-control-label" for="customRadio2">6 months</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input"ng-model="manual.period" value="12">
+                        <label class="custom-control-label" for="customRadio3">12 months</label>
+                    </div>
+                </div>
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" id="datepicker2" ng-model="manual.startdate" cleave="cleaveDate.date" placeholder="Start date: DD.MM.YYYY">
+                </div><!-- form-group -->
+                <h6 class="mg-b-10">Personal Information</h6>
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Firstname" ng-model="manual.fname">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Lastname" ng-model="manual.lname">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" id="datepicker" ng-model="manual.dob" cleave="cleaveDate.date" placeholder="Date of birth: DD.MM.YYYY">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Address" ng-model="manual.address">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="ZIP" ng-model="manual.zip">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="City" ng-model="manual.city">
+                </div><!-- form-group -->
+                <div class="form-group mg-b-10">
+                <input type="text" class="form-control" placeholder="Insurance" ng-model="manual.insurance">
+                </div><!-- form-group -->
+
+            </div><!-- col -->
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="wd-100p d-flex flex-column flex-sm-row justify-content-end">
+            <button type="button" class="btn btn-primary mg-b-5 mg-sm-b-0" ng-click="createConsultation(manual);cancel()">Create Record</button>
+            <button type="button" class="btn btn-secondary mg-sm-l-5" ng-click="cancel()">Discard</button>
+        </div>
+    </div>
+</section>
+<script>
+    feather.replace();
+    $('#datepicker').datepicker({
+        yearRange: "-100:+0", 
+        showOtherMonths: true,
+        selectOtherMonths: true,
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'dd.mm.yy'
+    });
+    $('#datepicker2').datepicker({
+        yearRange: "-:+10", 
+        showOtherMonths: true,
+        selectOtherMonths: true,
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'dd.mm.yy'
+    });
+    var cleaveC = new Cleave('#datepicker', {
+        date: true,
+        datePattern: ['d','m', 'Y']
+    });
+    var cleaveC = new Cleave('#datepicker2', {
+        date: true,
+        datePattern: ['d','m', 'Y']
+    });
+</script>

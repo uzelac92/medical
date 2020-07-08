@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mikehaertl/php-pdftk": "^0.8.0",
+        "tmw/fpdm": "^2.9"
+    }
+}

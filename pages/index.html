@@ -1,0 +1,95 @@
+<div ng-include="'/pages/header.html'"></div>
+<section class="page-profile">
+  <div class="content content-fixed content-profile">
+    <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
+      <div class="media d-block d-lg-flex">
+        <div class="profile-sidebar pd-lg-r-25">
+          <div class="col-sm-3 col-md-2 col-lg">
+            <div class="avatar avatar-xxl avatar-online"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
+          </div><!-- col -->
+          <div class="col-sm-8 col-md-7 col-lg mg-t-20 mg-sm-t-0 mg-lg-t-25">
+            <h5 class="mg-b-2 tx-spacing--1">{{userData.salute}}. {{userData.fname}} {{userData.lname}}</h5>
+            <p class="tx-color-03 mg-b-25">{{userData.usemail}}</p>
+
+            <p class="tx-13 tx-color-02 mg-b-25">{{userData.notes}}</p>
+
+            <div class="d-flex">
+              <div class="profile-skillset flex-fill">
+                <h4><a href="" class="link-01">{{userData.insurance}}</a></h4>
+                <label>Insurance</label>
+              </div>
+            </div>
+          </div><!-- col -->
+          <div class="col-sm-6 col-md-5 col-lg mg-t-40 p-0">
+            <label class="tx-sans tx-10 tx-semibold tx-uppercase tx-color-01 tx-spacing-1 mg-b-15">Personal Information</label>
+            <ul class="list-unstyled profile-info-list">
+              <li><i data-feather="calendar"></i> <span class="tx-color-03">{{userData.dob}}</span></li>
+              <li><i data-feather="home"></i> <span class="tx-color-03">{{userData.adres}}</span></li>
+              <li><i data-feather="map-pin"></i> <span class="tx-color-03">{{userData.zip}} {{userData.city}}</span></li>
+              <li><i data-feather="phone"></i> <a>{{userData.phone}}</a></li>
+            </ul>
+          </div>
+
+        </div><!-- profile-sidebar -->
+        <div class="media-body mg-t-40 mg-lg-t-0 pd-lg-x-10">
+          <div class="profile-update-option bg-white ht-50 bd d-flex justify-content-end mg-b-20 mg-lg-b-25 rounded">
+            <div class="d-flex align-items-center pd-x-20 mg-r-auto">
+              <i data-feather="edit-3"></i> <a ng-click="newRecord(userData.id)" class="link-03 mg-l-10"><span class="d-none d-sm-inline">Create a</span> consultation record</a>
+            </div>
+          </div>
+
+          <div class="card mg-b-20 mg-lg-b-25" ng-repeat="cons in userCons track by $index">
+            <div class="card-header pd-y-15 pd-x-20 d-flex align-items-center justify-content-between">
+              <h6 class="tx-uppercase tx-semibold mg-b-0">Consultation Record #{{cons.CONSID}}</h6>
+              <nav class="nav nav-with-icon tx-13">
+                <a ng-click="newTask(cons.CONSID)" class="nav-link"><i data-feather="plus"></i> Add Task</a>
+              </nav>
+            </div><!-- card-header -->
+            <div class="card-body pd-25 border border-left-0 border-right-0 border-top-0">
+              <div class="media d-block d-sm-flex">
+                <div class="d-flex align-items-center justify-content-center">
+                  <div>
+                    <div class="wd-80 ht-80 bg-ui-04 rounded d-flex align-items-center justify-content-center">
+                      <i class="fas fa-archive wd-40 ht-40 tx-white-7 ft-3"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-body pd-t-25 pd-sm-t-0 pd-sm-l-25">
+                  <div class="content">
+                    <div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
+                      <div class="media d-block d-lg-flex">
+                        <div class="media-body">
+                          <div class="timeline-group tx-13">
+                            <div class="timeline-item">
+                              <div class="timeline-time">{{cons.CONSDATE}}</div>
+                              <div class="timeline-body first-dot">
+                                <h5 class="mg-b-0 font-weight-bold">Start of consultation record</h5>
+                              </div><!-- timeline-body -->
+                            </div>
+                            <div class="timeline-item" ng-repeat="task in cons.CONSTASKS.CONSTASKS">
+                              <div class="timeline-time">{{task.DUE}}</div>
+                              <div class="timeline-body" ng-if="task.SOLVEDATE == ''">
+                                <h6 class="mg-b-0">Consultation due date</h6>
+                                <p ng-if="task.SOLVEDATE == ''"><a href="/uploads/{{task.DUEFILENAME}}">PDF file</a> is generated {{task.CREATED}}</p>
+              
+                                <p>Consultation id: {{task.TASKID}}</p>
+                              </div>
+                              <div class="timeline-body" ng-if="task.SOLVEDATE != ''">
+                                <h6 class="mg-b-0">Admin uploaded <a href="/uploads/{{task.DUEFILENAME}}">PDF file</a></h6>
+                                <p>For consultation id: {{task.TASKID}}</p>
+                              </div>
+                            
+                          </div><!-- timeline-group -->
+                        </div><!-- media-body -->
+                      </div><!-- media -->
+                    </div><!-- container -->
+                  </div>
+                </div>
+              </div><!-- media -->
+            </div>
+          </div><!-- card -->
+        </div><!-- media-body -->
+      </div><!-- media -->
+    </div><!-- container -->
+  </div><!-- content -->
+</section>
